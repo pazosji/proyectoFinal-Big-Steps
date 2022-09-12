@@ -1,0 +1,28 @@
+@mixin cajas {
+    border: solid 1rem $color-secundario;
+    border-radius: 15px;
+    margin: 3rem;
+    padding: 2rem;
+}
+
+@mixin footer {
+    font-size: 13px;
+    list-style: none;
+}
+
+@mixin contacto {
+    color: $color-tipografia;
+}
+
+@mixin card {
+    background-color: $color-secundario;
+    margin: 2rem;
+}
+
+@mixin contenido1 {
+    color: $color-tipografia;
+    background-color: $color-principal;
+    padding: 2rem;
+
+
+}

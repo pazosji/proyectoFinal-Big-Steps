@@ -1,0 +1,319 @@
+* {
+  margin: 0;
+  padding: o;
+  box-sizing: border-box;
+}
+
+@import "base/variables";
+@import "base/listas";
+@import "base/mixin";
+
+html {
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Signika Negative', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: $color-principal;
+  position: sticky;
+  top: 0px;
+  z-index: 2;
+  border: solid 0.5rem $color-secundario;
+  font-family: 'Signika Negative', sans-serif;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    border: solid 0.3rem $color-secundario;
+    width: 80%;
+    margin: 5px;
+  }
+
+  h1 {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    color: nth($colores, 4);
+    padding: 0.5rem;
+    font-size: 1.6rem;
+  }
+
+  .navbar {
+    background-color: $color-principal;
+    padding: 2px;
+    margin: 10px;
+    border-radius: 10px;
+    border: solid 0.5rem $color-secundario;
+  }
+
+  .navbar .navbar-nav .nav-link {
+    list-style: none;
+    color: $color-tipografia;
+    padding: 1rem;
+  }
+
+  .navbar-brand {
+    color: $color-tipografia;
+    font-weight: bold;
+  }
+
+
+  .navbar .navbar-nav .lista :hover {
+    background-color: $color-secundario;
+    border-radius: 1rem;
+    color: $color-tipografia;
+    font-weight: bold;
+  }
+
+
+  .navbar .listaDesplegable:hover>.navbar-nav2 {
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
+  }
+
+
+  .navbar .listaDesplegable .navbar-nav2 {
+    border: solid 0.5rem $color-secundario;
+    list-style: none;
+    display: block;
+    position: absolute;
+    padding: 10px;
+    visibility: hidden;
+    background: $color-principal;
+    transition: 0.2s;
+  }
+
+  .navbar .listaDesplegable .navbar-nav2 a {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+}
+
+
+#hero {
+  width: 100%;
+  height: 40vh;
+  background-color: nth($colores, 4);
+  position: relative;
+}
+
+#hero .carousel,
+#hero .carousel-inner,
+#hero .carousel-item,
+#hero .carousel-item::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+#hero .carousel-item {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+#hero .hero-container .carousel {
+  text-align: center;
+  display: flex;
+  display: block;
+  align-content: center;
+
+
+}
+
+#hero h2 {
+  color: $color-tipografia;
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  #hero h2 {
+    font-size: 28px;
+  }
+}
+
+#hero p {
+  width: 80%;
+  margin: 0 auto 30px auto;
+  color: $color-tipografia;
+  font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+  #hero p {
+    width: 60%;
+  }
+}
+
+#hero .carousel-fade {
+  overflow: hidden;
+}
+
+#hero .carousel-fade .carousel-inner .carousel-item {
+  transition-property: opacity;
+}
+
+#hero .carousel-fade .carousel-inner .carousel-item,
+#hero .carousel-fade .carousel-inner .active.carousel-item-start,
+#hero .carousel-fade .carousel-inner .active.carousel-item-end {
+  opacity: 0;
+}
+
+#hero .carousel-fade .carousel-inner .active,
+#hero .carousel-fade .carousel-inner .carousel-item-next.carousel-item-start,
+#hero .carousel-fade .carousel-inner .carousel-item-prev.carousel-item-end {
+  opacity: 1;
+  transition: 0.5s;
+}
+
+#hero .carousel-fade .carousel-inner .carousel-item-next,
+#hero .carousel-fade .carousel-inner .carousel-item-prev,
+#hero .carousel-fade .carousel-inner .active.carousel-item-start,
+#hero .carousel-fade .carousel-inner .active.carousel-item-end {
+  left: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+#hero .carousel-control-prev,
+#hero .carousel-control-next {
+  width: 10%;
+}
+
+@media (min-width: 1024px) {
+
+  #hero .carousel-control-prev,
+  #hero .carousel-control-next {
+    width: 5%;
+  }
+}
+
+#hero .carousel-control-next-icon,
+#hero .carousel-control-prev-icon {
+  background: none;
+  font-size: 32px;
+  line-height: 1;
+}
+
+
+#hero .btn-get-started {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 50px;
+  transition: 0.5s;
+  margin: 10px;
+  color: $color-tipografia;
+  background: $color-secundario;
+}
+
+#hero .btn-get-started:hover {
+  background: #fff;
+  color: $color-secundario;
+}
+
+main {
+  
+  @include contenido1;
+  .contenido1 {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-rows: 0.3fr 0.3fr 0.5fr 0.5fr;
+    grid-template-areas: "contenido2 contenido2"
+      "contenido3 contenido3"
+      "contenido4 contenido4"
+      "contenido5 contenido6";
+
+    .contenido2 {
+      grid-area: contenido2;}
+
+    .contenido3 {
+      grid-area: contenido3;}
+
+    .contenido4 {
+      grid-area: contenido4;}
+
+    .contenido5 {
+      grid-area: contenido5;}
+
+    .contenido6 {
+      grid-area: contenido6;}
+  }
+
+  .contenido2 {
+    border: solid 0.5rem $color-secundario;
+    padding: 0.5rem;
+    margin: 2rem;
+  }
+
+  .contenido3 {
+    border: solid 0.5rem $color-secundario;
+    padding: 0.5rem;
+    margin: 2rem;
+  }
+
+  .contenido4 {
+    border: solid 0.5rem $color-secundario;
+    padding: 0.5rem;
+    margin: 2rem;
+  }
+
+  .contenido5 {
+    border: solid 0.5rem $color-secundario;
+    padding: 0.5rem;
+    margin: 2rem;
+  }
+
+  .contenido6 {
+    border: solid 0.5rem $color-secundario;
+    padding: 0.5rem;
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &__img{width: 90%;}
+  }
+
+  .formContacto{
+    display: flex;
+    justify-content: center;}
+
+  .formContacto1{display: flex;
+    justify-content: center;
+    font-size: 30px;}
+
+ 
+
+}
+
+
+footer {@include footer
+  background-color: $color-secundario;
+
+  .listaFooter{list-style: none;}
+
+  h3 {color: $color-tipografia;}
+
+  h4 {color: $color-tipografia;}
+
+  p {color: $color-tipografia;}
+
+}
+
+.imgfooter{
+  width: 75px;}
+
+/* .card{background-color: $color-secundario;} */
+.card {@include card;}
